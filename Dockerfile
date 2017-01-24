@@ -7,7 +7,7 @@ COPY rootfs /
 RUN apk add --update \
     ca-certificates \
     python \
-    py-pip \
+    py2-pip \
     && pip install --upgrade pip \
     && pip install j2cli \
     && update-ca-certificates \
