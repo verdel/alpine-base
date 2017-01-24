@@ -20,7 +20,7 @@ RUN apk add --update \
     /var/cache/apk/*
 
 # Add s6-overlay
-ENV S6_OVERLAY_VERSION v1.17.0.2
+ENV S6_OVERLAY_VERSION v1.19.1.1
 
 RUN apk add --update curl && \
     curl -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz \
