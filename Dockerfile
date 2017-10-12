@@ -3,8 +3,8 @@ MAINTAINER Vadim Aleksandrov <valeksandrov@me.com>
 
 COPY rootfs /
 
-# Add Solar Root CA
-RUN apk add --update \
+RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
+    apk add --update \
     ca-certificates \
     python \
     py2-pip \
