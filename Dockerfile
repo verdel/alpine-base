@@ -7,7 +7,7 @@ RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/ap
     apk add --update \
     python \
     py2-pip \
-    && apk --update add --virtual build-dependencies ca-certificates git
+    && apk --update add --virtual build-dependencies ca-certificates git \
     && pip install --upgrade pip \
     && pip install git+https://github.com/verdel/j2cli.git \
     && update-ca-certificates \
