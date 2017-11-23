@@ -5,14 +5,13 @@ COPY rootfs /
 
 RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
     apk add --update \
-    ca-certificates \
     python \
     py2-pip \
+    && apk --update add --virtual build-dependencies ca-certificates git
     && pip install --upgrade pip \
-    && pip install j2cli \
+    && pip install git+https://github.com/verdel/j2cli.git \
     && update-ca-certificates \
-    && apk del \
-    ca-certificates \
+    && apk del build-dependencies \
     # Clean up
     && rm -rf \
     /usr/share/man \
@@ -20,7 +19,7 @@ RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/ap
     /var/cache/apk/*
 
 # Add s6-overlay
-ENV S6_OVERLAY_VERSION v1.20.0.0
+ENV S6_OVERLAY_VERSION v1.21.2.1
 
 RUN apk add --update curl && \
     curl -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz \
