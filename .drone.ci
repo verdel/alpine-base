@@ -1,0 +1,5 @@
+pipeline:
+  docker:
+    image: plugins/docker
+    repo: verdel/alpine-base
+    secrets: [ docker_username, docker_password ]
