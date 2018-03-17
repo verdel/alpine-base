@@ -4,6 +4,7 @@ MAINTAINER Vadim Aleksandrov <valeksandrov@me.com>
 COPY rootfs /
 
 RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
+    echo '@edge http://nl.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories && \
     apk add --update \
     python \
     py2-pip \
@@ -20,7 +21,7 @@ RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/ap
     /var/cache/apk/*
 
 # Add s6-overlay
-ENV S6_OVERLAY_VERSION v1.21.2.1
+ENV S6_OVERLAY_VERSION v1.21.4.0
 
 RUN apk add --update curl && \
     curl -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz \
