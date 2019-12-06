@@ -21,7 +21,7 @@ RUN echo '@community http://nl.alpinelinux.org/alpine/edge/community' >> /etc/ap
     /var/cache/apk/*
 
 # Add s6-overlay
-ENV S6_OVERLAY_VERSION v1.21.4.0
+ENV S6_OVERLAY_VERSION v1.22.1.0
 
 RUN apk add --update curl && \
     curl -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz \
